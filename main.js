@@ -4,29 +4,43 @@ var snackDesc = document.getElementById('snack-desc');
 var snackTitle = document.querySelector('.snack__title');
 
 addSnackButton.addEventListener('click', snackCard);
-groceryList.addEventListener('click', deleteCard);
+groceryList.addEventListener('click', noteCardEvent);
 snackTitle.addEventListener('keyup', buttonActiveState);
 
 function snackCard(e){
+	console.log('hi');
 	e.preventDefault();
 console.log('Snack Card');
  groceryList.insertAdjacentHTML('afterbegin',
  `<section class="munchie__card">
- <h1 id="snack__title--h1"> 
+ <h1 class="snack__title--h1"> 
  	${snackTitle.value}
  </h1>
- <textarea id="snack__textarea">
+ <h3 class="snack__item--text">
  ${snackDesc.value}
- </textarea>
+ </h3>
  <img class="delete__button" src="images/delete.svg">
  </section>`)
  	clearForms()
 }
 
-function deleteCard(e){
+function noteCardEvent(e){
 	if(e.target.classList.contains("delete__button")){
 		e.target.parentNode.remove();
 	}
+	if(e.target.classList.contains("snack__title--h1")){
+		console.log('Snack title!');
+		e.target.remove();	
+	}
+}
+
+function changeTitle(){
+ 	if(e.target.classList.contains("snack__title--h1")){
+		e.target.remove();
+		groceryList.insertAdjacentHTML('afterbegin',
+    `<input class="new__title">
+    </input>
+    `)}
 }
 
 function buttonActiveState(e){
