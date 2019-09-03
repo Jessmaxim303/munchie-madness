@@ -16,9 +16,10 @@ console.log('Snack Card');
  <h1 class="snack__title--h1"> 
  	${snackTitle.value}
  </h1>
- <h3 class="snack__item--text">
+ <div class="text__change--area"></div>
+ <textarea class="snack__item--text">
  ${snackDesc.value}
- </h3>
+ </textarea>
  <img class="delete__button" src="images/delete.svg">
  </section>`)
  	clearForms()
@@ -28,23 +29,9 @@ function noteCardEvent(e){
 	if(e.target.classList.contains("delete__button")){
 		e.target.parentNode.remove();
 	}
-	if(e.target.classList.contains("snack__title--h1")){
-		console.log('Snack title!');
-		e.target.remove();	
-	}
-}
-
-function changeTitle(){
- 	if(e.target.classList.contains("snack__title--h1")){
-		e.target.remove();
-		groceryList.insertAdjacentHTML('afterbegin',
-    `<input class="new__title">
-    </input>
-    `)}
 }
 
 function buttonActiveState(e){
-	console.log('function connention')
 	addSnackButton.disabled = false;
 }
 
